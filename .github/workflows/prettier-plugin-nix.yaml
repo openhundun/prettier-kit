@@ -1,0 +1,29 @@
+defaults:
+  run:
+    shell: bash --noprofile --norc -euo pipefail {0}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: jetli/wasm-pack-action@v0.4.0
+      - run: bash script/prettier-plugin-nix.sh job__build step__wasm
+      - run: bash script/prettier-plugin-nix.sh job__build step__build
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash script/prettier-plugin-nix.sh job__build step__release
+      - run: bash script/prettier-plugin-nix.sh job__build step__stage
+    timeout-minutes: 15
+name: prettier-plugin-nix
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  id-token: write

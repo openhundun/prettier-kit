@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "@biomejs/wasm-nodejs": "2.5.15"
+  },
+  "description": "A `biome` toolchain for Prettier",
+  "devDependencies": {
+    "@tsconfig/bun": "latest",
+    "@types/bun": "latest",
+    "@types/node": "latest",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "exports": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "biome",
+    "javascript",
+    "prettier",
+    "prettier-plugin",
+    "typescript"
+  ],
+  "license": "Unlicense",
+  "name": "prettier-plugin-biome",
+  "peerDependencies": {
+    "prettier": "^3.0.0"
+  },
+  "repository": {
+    "directory": "source/prettier-plugin-biome",
+    "type": "git",
+    "url": "git+https://github.com/openhundun/prettier-kit.git"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "version": "2.5.15"
+}
