@@ -1,0 +1,19 @@
+{
+  "name": "alejandra_wasm",
+  "collaborators": [
+    "Kevin Amado <kamadorueda@gmail.com>"
+  ],
+  "description": "The Uncompromising Nix Code Formatter",
+  "version": "4.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamadorueda/alejandra"
+  },
+  "files": [
+    "alejandra_wasm_bg.wasm",
+    "alejandra_wasm.js",
+    "alejandra_wasm.d.ts"
+  ],
+  "main": "alejandra_wasm.js",
+  "types": "alejandra_wasm.d.ts"
+}

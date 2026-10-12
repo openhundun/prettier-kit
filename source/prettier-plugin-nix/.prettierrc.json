@@ -1,0 +1,11 @@
+{
+  "plugins": ["./dist/index.js"],
+  "overrides": [
+    {
+      "files": "*.nix",
+      "options": {
+        "parser": "nix"
+      }
+    }
+  ]
+}
