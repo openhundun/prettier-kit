@@ -1,15 +1,12 @@
 {
   "compilerOptions": {
+    "allowImportingTsExtensions": false,
     "declaration": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "noEmit": false,
     "outDir": "dist",
-    "resolveJsonModule": true,
     "rootDir": "src",
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "esnext"
+    "types": ["bun", "node"]
   },
+  "extends": "@tsconfig/bun/tsconfig.json",
   "include": ["src/**/*"]
 }

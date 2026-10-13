@@ -1,10 +1,18 @@
 {
   "description": "An opinionated `nix` formatter plugin for Prettier",
   "devDependencies": {
+    "@tsconfig/bun": "latest",
+    "@types/bun": "latest",
+    "@types/node": "latest",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0"
   },
-  "exports": "./dist/index.js",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
     "dist",
     "wasm/pkg"
@@ -21,9 +29,9 @@
     "prettier": "^3.0.0"
   },
   "repository": {
+    "directory": "source/prettier-plugin-nix",
     "type": "git",
-    "url": "git+https://github.com/openhundun/prettier-kit.git",
-    "directory": "source/prettier-plugin-nix"
+    "url": "git+https://github.com/openhundun/prettier-kit.git"
   },
   "scripts": {
     "build": "rm -rf dist && tsc"
