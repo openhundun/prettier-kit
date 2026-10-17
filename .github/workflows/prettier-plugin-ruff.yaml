@@ -1,0 +1,23 @@
+name: prettier-plugin-ruff
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: bash --noprofile --norc -euo pipefail {0}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+      - run: bash script/prettier-plugin-ruff.sh job__build step__build
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash script/prettier-plugin-ruff.sh job__build step__release
