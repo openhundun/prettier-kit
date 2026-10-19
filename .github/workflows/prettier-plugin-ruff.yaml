@@ -1,3 +1,6 @@
+concurrency:
+  cancel-in-progress: true
+  group: prettier-plugin-ruff
 defaults:
   run:
     shell: bash --noprofile --norc -euo pipefail {0}
@@ -18,6 +21,13 @@ jobs:
     timeout-minutes: 10
 name: prettier-plugin-ruff
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/prettier-plugin-ruff.yaml
+      - script/prettier-plugin-ruff.sh
+      - source/prettier-plugin-ruff/**
   workflow_dispatch:
 permissions:
   contents: write

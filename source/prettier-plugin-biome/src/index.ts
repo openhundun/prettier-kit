@@ -159,10 +159,7 @@ const languages = [
 ];
 
 const parsers = {
-    "babel": biomeParser,
-    "babel-ts": biomeParser,
-    "biome": biomeParser,
-    "typescript": biomeParser,
+    biome: biomeParser,
 };
 
 const printers: { [astFormat: string]: Printer<BiomeAstNode> } = {
